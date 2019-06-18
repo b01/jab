@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 /**
  * render - build an render javascript template literals.

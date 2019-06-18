@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+
+  app:
+    container_name: "jab-app"
+    image: "jab-app"
+    build:
+      context: "../"
+      dockerfile: "docker/app/Dockerfile"
+    networks:
+      jab: null
+    ports:
+      - "3000:3000"
+    volumes:
+      - "..:/app"
+      - "jab-root:/root"
+      - "jab-tmp:/tmp"
+    working_dir: "/app"
+
+networks:
+  jab: null
+
+volumes:
+  jab-root: null
+  jab-tmp: null
