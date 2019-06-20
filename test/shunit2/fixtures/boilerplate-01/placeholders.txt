@@ -1,0 +1,3 @@
+name="__APP_NAME__"
+id_name="__APP_ID_NAME__"
+
