@@ -2,7 +2,7 @@
   "name": "jab",
   "version": "0.0.1",
   "description": "(JavaScript Application Boilerplate) is a tool/utility to initilize an application/project skeleton from a boilerplate.",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
     "start": "node --experimental-modules src/index.mjs"
   },
