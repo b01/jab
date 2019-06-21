@@ -3,10 +3,15 @@
 set -e
 
 DIR=$( cd "$( dirname "$0" )" && pwd )
-APP_NAME="${1}"
-APP_PATH="${2}"
-APP_ID=$(basename "${2}")
-#APP_FILES=$(ls "${APP_PATH}" >null 2>null)
+BOILER_PLATE="${1}"
+APP_NAME="${2}"
+APP_PATH="${3}"
+APP_ID=$(basename "${APP_PATH}")
+
+if [ -z "${BOILER_PLATE}" ]; then
+    echo "Missing boilerplate argument."
+    exit 1
+fi
 
 if [ -z "${APP_NAME}" ]; then
     echo "Missing app name."
@@ -18,6 +23,8 @@ if [ -z "${APP_PATH}" ]; then
     exit 1
 fi
 
+BOILER_PLATE_PATH=$( cd "${DIR}/../boilerplates/" && pwd)
+
 # Stop with error if the directory exist AND has files.
 if [ -d "${APP_PATH}" ]; then
     hasFiles=$(ls "${APP_PATH}")
@@ -28,11 +35,10 @@ if [ -d "${APP_PATH}" ]; then
     fi
 fi
 
-# 1. Find requested boilerplate.
-BOILER_PLATE="${DIR}/../boilerplate-01"
+# 1. Copy the boilerplate into the desired location.
+. "${DIR}"/copy-boilerplate.sh \
+  "${BOILER_PLATE_PATH}/${BOILER_PLATE}" "${APP_PATH}"
 
-# 2. Copy the boilerplate into the desired location.
-. "${DIR}"/copy-boilerplate.sh "${BOILER_PLATE}" "${APP_PATH}"
-
-# 3. Fill in all placeholders in the boilerplate.
-. "${DIR}"/replace-name.sh "${APP_NAME}" "${APP_PATH}" "${APP_ID}"
+# 2. Fill in all placeholders in the boilerplate.
+. "${DIR}"/replace-name.sh \
+  "${APP_NAME}" "${APP_PATH}" "${APP_ID}"

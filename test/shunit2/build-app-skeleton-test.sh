@@ -4,10 +4,10 @@
 DIR=$( cd "$( dirname "$0" )" && pwd )
 FIXTURES_DIR="${DIR}/fixtures"
 BLAST_DIR="${DIR}/tmp"
-FIXTURE_APP="${BLAST_DIR}/replace-me-test"
+FIXTURE_APP="${BLAST_DIR}/build-app-skeleton-test"
 
 testAppSkeletonMade() {
-  result=`${DIR}/../../bin/build-app-skeleton.sh "jab test" "${FIXTURE_APP}"`
+  result=`${DIR}/../../bin/build-app-skeleton.sh "web" "jab test" "${FIXTURE_APP}"`
 
   assertTrue \
       "the app skeleton was not made" \
