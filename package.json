@@ -1,20 +1,16 @@
 {
   "name": "jab",
   "version": "0.0.1",
-  "description": "(JavaScript Application Boilerplate) is a tool/utility to initilize an application/project skeleton from a boilerplate.",
-  "main": "index.mjs",
-  "scripts": {
-    "start": "node --experimental-modules src/index.mjs"
-  },
+  "description": "(JavaScript Application Boilerplate) is a tool/utility to initialize an application/project skeleton from a boilerplate.",
+  "main": "cli.mjs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/b01/jab.git"
+    "url": "https://github.com/b01/jab.git"
   },
   "keywords": [
     "app",
     "application",
-    "boiler",
-    "plate",
+    "boilerplate",
     "template"
   ],
   "author": "Khalifah Khalil Shabazz",
@@ -23,11 +19,6 @@
     "url": "https://github.com/b01/jab/issues"
   },
   "homepage": "https://github.com/b01/jab#readme",
-  "dependencies": {
-    "express": "^4.0"
-  },
-  "devDependencies": {
-    "cucumber": "^5.0",
-    "jest": "^24.0"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
