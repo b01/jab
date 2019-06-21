@@ -1,8 +1,11 @@
+#! /usr/bin/env node
+
 import htmlCtrlr from './controllers/html.mjs';
 import express from 'express';
 import settings from '../config/settings.mjs';
 
 const app = express();
+const [,, ... args] = process.argv;
 
 app.route('/')
     .get((req, res) => {

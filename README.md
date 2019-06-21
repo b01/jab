@@ -18,3 +18,7 @@ The command above will perform the following:
 ## See a list of available bolierplates
 
 `npm jab show`
+
+## References
+
+[shunit2](https://github.com/kward/shunit2)
