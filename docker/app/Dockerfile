@@ -1,6 +1,8 @@
 FROM node:current-alpine as base
 
-# docker build --rm -t "jabd/jab" --target "deploy" -f ".\docker\app\Dockerfile" .
+# Build and test:
+# docker build --rm --no-cache -t "jabd/jab" --target="deploy" -f ".\docker\app\Dockerfile" .
+# docker run --rm --name="jab" -it -v "${PWD}:/tmp" jabd/jab web Testy /tmp/test1
 
 # BEGIN deploy
 
