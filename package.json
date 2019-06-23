@@ -20,5 +20,8 @@
   },
   "homepage": "https://github.com/b01/jab#readme",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {},
+  "bin": {
+    "jab": "src/cli.mjs"
+  }
 }
