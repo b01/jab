@@ -15,7 +15,7 @@ testAppSkeletonMade() {
 
   actual=$(grep -rn "__APP_ID_NAME__" ${FIXTURE_APP})
   assertEquals \
-    'Failed to update placeholer APP_NAME' \
+    'Failed to update placeholder APP_NAME' \
     "" "${actual}"
 }
 
