@@ -1,1 +1,9 @@
+.idea/
+docker/
 node_modules/
+test/
+.gitignore
+.gitmodules
+CONTRIBUTING.md
+package.json
+package-lock.json
