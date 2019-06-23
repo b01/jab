@@ -8,7 +8,8 @@ APP_PATH="${2}"
 APP_PARENT_DIR=$(dirname "${APP_PATH}")
 
 if [ ! -d "${BOILER_PLATE_PATH}" ]; then
-    echo "Missing boilerplate directory."
+    name=$(basename "${BOILER_PLATE_PATH}")
+    echo "Could not find boilerplate ${name}."
     exit 1
 fi
 

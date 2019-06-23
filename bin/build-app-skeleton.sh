@@ -9,12 +9,12 @@ APP_PATH="${3}"
 APP_ID=$(basename "${APP_PATH}")
 
 if [ -z "${BOILER_PLATE}" ]; then
-    echo "Missing boilerplate argument."
+    echo "Error: Missing boilerplate argument."
     exit 1
 fi
 
 if [ -z "${APP_NAME}" ]; then
-    echo "Missing app name."
+    echo "Error: Missing app name."
     exit 1
 fi
 
@@ -30,7 +30,7 @@ if [ -d "${APP_PATH}" ]; then
     hasFiles=$(ls "${APP_PATH}")
 
     if [ -n "${hasFiles}" ]; then
-        echo "Bad destination path. The and has files"
+        echo "Error: The destination path has files."
         exit 1
     fi
 fi
