@@ -26,3 +26,4 @@ in the application ID placeholders.
 ## References
 
 [shunit2](https://github.com/kward/shunit2)
+[mjs-mocha](https://github.com/vpotseluyko/mjs-mocha)
