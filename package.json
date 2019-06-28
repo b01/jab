@@ -19,9 +19,16 @@
     "url": "https://github.com/b01/jab/issues"
   },
   "homepage": "https://github.com/b01/jab#readme",
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+    "commander": "^2.0"
+  },
+  "devDependencies": {
+    "mjs-mocha": "^3.0"
+  },
   "bin": {
     "jab": "src/cli.mjs"
+  },
+  "scripts": {
+    "test": "mjs-mocha"
   }
 }
