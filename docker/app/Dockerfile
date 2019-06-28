@@ -1,5 +1,7 @@
 FROM node:current-alpine as base
 
+ENV NODE_OPTIONS="--experimental-modules"
+
 # Build and test:
 # docker build --rm --no-cache -t "jabd/jab" --target="deploy" -f ".\docker\app\Dockerfile" .
 # docker run --rm --name="jab" -it -v "${PWD}:/tmp" jabd/jab web Testy /tmp/test1
@@ -12,7 +14,7 @@ COPY ./ /app
 
 WORKDIR /app
 
-ENTRYPOINT [ "node", "--experimental-modules", "src/cli.mjs"]
+ENTRYPOINT [ "node", "--experimental-modules", "src/cli.mjs" ]
 CMD [""]
 
 # END deploy
