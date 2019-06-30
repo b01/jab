@@ -23,7 +23,10 @@
     "commander": "^2.0"
   },
   "devDependencies": {
-    "mjs-mocha": "^3.0"
+    "chai": "^4.0",
+    "esm": "^3.0",
+    "eslint": "^6.0",
+    "mocha": "^6.0"
   },
   "bin": {
     "jab": "src/cli.mjs"
