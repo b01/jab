@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
-import { cwd } from '/app/src/lib/cwd.mjs';
-import { getDirContents } from '/app/src/lib/getDirContents.mjs';
+import { cwd } from './lib/cwd.mjs';
+import { getDirContents } from './lib/getDirContents.mjs';
 import commander from 'commander';
 
 const [,, ... args] = process.argv;
