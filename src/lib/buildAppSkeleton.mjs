@@ -24,8 +24,6 @@ export let buildAppSkeleton = (template, dest, appId, appName) => {
             {
                 stopOnErr: true,
                 transform: function (reader, writer) {
-                    returnVal.outputPaths.push(writer.path);
-
                     // listen for errors.
                     reader.on('error', (err) => {
                         console.log(err);
