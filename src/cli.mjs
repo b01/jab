@@ -16,8 +16,8 @@ const options = commander
     .action((boilerplate, appPath, appId, appName) => {
         buildAppSkeleton(boilerplate, appPath, appId, appName)
             .catch(() => {
-                process.exitCode = 1;
                 console.log(err);
+                process.exitCode = 1;
             });
     });
 
@@ -28,6 +28,5 @@ options.on('option:verbose', function () {
 options.parse(process.argv);
 
 if (process.argv.slice(2).length === 0) {
-    process.exitCode = 1;
     options.outputHelp();
 }
