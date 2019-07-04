@@ -33,6 +33,7 @@
     "jab": "src/cli.mjs"
   },
   "scripts": {
-    "test": "mocha --recursive test/mocha/**/*.spec.js --require esm"
+    "mtest": "mocha --recursive test/mocha/**/*.spec.js --require esm",
+    "test": "yarn run mtest"
   }
 }
