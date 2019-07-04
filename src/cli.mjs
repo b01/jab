@@ -1,17 +1,33 @@
 #! /usr/bin/env node
 
 import { cwd } from './lib/cwd.mjs';
-import { getDirContents } from './lib/getDirContents.mjs';
 import commander from 'commander';
+import buildAppSkeleton from './lib/buildAppSkeleton.mjs';
+import fs from 'fs';
 
-const [,, ... args] = process.argv;
 const __dirname = cwd(import.meta);
+let pkg = fs.readFileSync(`${__dirname}/../package.json`).toString();
 
-console.log('__dirname:', __dirname);
-// TODO: Setup arguments, see commander README.md
-getDirContents('/app/test/mocha/fixtures/boilerplate-01')
-    .then((contents) => {
-        console.log('boilerplate:', contents);
+const options = commander
+    .version(JSON.parse(pkg).version, '-v, --version')
+    .usage('<template> <appPath> <app-id> <app-name>')
+    .description('Makes a new application from a template.')
+    .arguments('<boilerplate> <appPath> <appId> <appName>')
+    .action((boilerplate, appPath, appId, appName) => {
+        buildAppSkeleton(boilerplate, appPath, appId, appName)
+            .catch(() => {
+                process.exitCode = 1;
+                console.log(err);
+            });
     });
-// TODO: Copy boilerplate into place.
-// TODO: Perform placeholder updates on files.
+
+options.on('option:verbose', function () {
+    process.env.VERBOSE = this.verbose;
+});
+
+options.parse(process.argv);
+
+if (process.argv.slice(2).length === 0) {
+    process.exitCode = 1;
+    options.outputHelp();
+}
