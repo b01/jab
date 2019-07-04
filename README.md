@@ -1,27 +1,34 @@
 # jab (JavaScript Application Boilerplate)
 
-A tool/utility to initilize an application/project skeleton from a boilerplate.
+A tool/utility to initialize an application/project skeleton from a
+boilerplate.
+
+
+## Table of Contents
+
+* [Get Started](#get-started)
+* [Built-in Boilerplates](#built-in-boilerplates)
+* [References](#references)
 
 ## Get Started
 
 * Using Docker
-  `docker run -it -v "${PWD}:/tmp" jabd/jab <boilerplate> <app-name> <path>`
+  `docker run -it -v "${PWD}:/tmp" jabd/jab <boilerplate> <app-location> <app-id> <app-name>`
 * Using local installation of NodeJS/NPM.
   `npm install --global jab`
-  `jab <boilerplate-name> <app-folder-name>`
+  `jab <boilerplate> <app-location> <app-id> <app-name>`
 
 The command above will perform the following:
 
 1. Make a folder (if it does not already exists) or use an existing empty one.
 2. Fill the folder with the default contents of the chosen boilerplate.
 
-NOTE: that the name will be used to fill in application name placeholders. Also
-an application ID (takend from the basename of the path) will be used to fill
-in the application ID placeholders.
+NOTE: The <app-name> and <app-id> will be used to fill in placeholders 
+**\_\_APP_ID_NAME\_\_ and **\_\_APP_ID_NAME\_\_ respectively.
 
-## See a list of available boilerplates
+## Built-in Boilerplates
 
-`npm jab show`
+To see a list of available boilerplates: `jab show`
 
 ## References
 
