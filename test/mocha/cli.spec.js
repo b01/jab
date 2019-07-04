@@ -1,19 +1,23 @@
 import {cwd } from '../../src/lib/cwd.mjs';
 import { exec } from 'child_process';
 import { expect } from 'chai';
-import { fixtures } from './fixtures/cli-01.mjs';
+import fs from 'fs';
 
 const __dirname = cwd(import.meta);
 const FIXTURES = `${__dirname}/fixtures`;
 const CMD = `${__dirname}/../../src/cli.mjs`;
+const BLAST_ZONE = `${__dirname}/tmp/cli`;
+
+before(() => {
+    fs.mkdirSync(BLAST_ZONE);
+});
 
 describe('Given the jab command', function () {
-    describe('When passed valid arguments', function () {
-        it('Then make a new app', function (done) {
+    describe('When passed no arguments', function () {
+        it('Then will output usage message', function (done) {
             exec(
                 `node ${CMD}`,
                 (err, stdout) => {
-                    console.log('stdout', stdout);
                     expect(err).to.be.equal(null);
                     expect(stdout).to.contain('Usage: ');
                     done();
@@ -25,8 +29,7 @@ describe('Given the jab command', function () {
         it('Then -v will print the version', function (done) {
             exec(
                 `${CMD} -v`,
-                (err, stdout, stderr) => {
-                    console.log('stdout', stdout);
+                (err, stdout) => {
                     if (err) {
                         return done(err);
                     }
