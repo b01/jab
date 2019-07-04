@@ -10,9 +10,9 @@ import ncp from "ncp";
  * @returns {Promise<any | never>}
  */
 export let buildAppSkeleton = (template, dest, appId, appName) => {
-    let ds = fs.readdirSync(dest);
-
-    if (ds.length > 0) {
+    if (fs.existsSync(dest)
+        && fs.statSync(dest).isDirectory()
+        && fs.readdirSync(dest).length > 0) {
         throw new Error(`The ${dest} directory exist with files. Abort.`);
     }
 
