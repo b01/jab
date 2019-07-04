@@ -59,6 +59,7 @@ export let buildAppSkeleton = (template, dest, appId, appName) => {
     })
         .catch((err) => {
             console.log(err);
+            throw err;
         });
 };
 
