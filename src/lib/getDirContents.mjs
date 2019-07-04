@@ -1,5 +1,11 @@
 import fs from 'fs';
 
+/**
+ * Get a directory contents as a flat array.
+ *
+ * @param {string} path Path to a directory that exists.
+ * @returns {Promise<any | Promise<any | never>>}
+ */
 export let getDirContents = async function (path) {
     if (global.DEBUG) console.debug('path', path);
 
