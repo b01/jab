@@ -1,7 +1,7 @@
 import fs from 'fs';
 
 export let getDirContents = async function (path) {
-    // console.debug('path', path);
+    if (global.DEBUG) console.debug('path', path);
 
     return new Promise((resolve, reject) => {
         let contents = [], promises = [];
@@ -14,7 +14,7 @@ export let getDirContents = async function (path) {
             files.forEach((dirent, i) => {
                 let fullPath = `${path}/${dirent.name}`;
 
-                // console.debug(`path-${i}: ${path}/${dirent.name}`);
+                if (global.DEBUG) console.debug(`path-${i}: ${path}/${dirent.name}`);
                 contents.push(fullPath);
 
                 if (dirent.isDirectory()) {
@@ -24,7 +24,8 @@ export let getDirContents = async function (path) {
                 }
             });
 
-            console.debug('promises', promises);
+            if (global.DEBUG) console.debug('promises', promises);
+
             if (promises.length > 0) {
                 Promise.all(promises)
                     .then((values) => {
@@ -37,7 +38,7 @@ export let getDirContents = async function (path) {
                 resolve(contents);
             }
 
-            // console.debug('contents', contents);
+            if (global.DEBUG) console.debug('contents', contents);
         });
     })
     .catch(err => { // supply a default catch so the user does not have too.
