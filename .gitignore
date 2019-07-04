@@ -3,6 +3,7 @@
 /.idea/
 /node_modules/
 /test/shunit2/tmp/
+/test/mocha/tmp/
 
 # Files
 # -----
