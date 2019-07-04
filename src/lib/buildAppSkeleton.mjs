@@ -3,24 +3,24 @@ import ncp from "ncp";
 
 /**
  *
- * @param {string} template Path to template files.
- * @param {string} dest Empty path to new application.
+ * @param {string} boilerplate Path to template files.
+ * @param {string} appPath An empty or non-existing directory to make the new application.
  * @param {string} appId Application ID.
  * @param {string} appName Human readable application name.
  * @returns {Promise<any | never>}
  */
-export let buildAppSkeleton = (template, dest, appId, appName) => {
-    if (fs.existsSync(dest)
-        && fs.statSync(dest).isDirectory()
-        && fs.readdirSync(dest).length > 0) {
-        throw new Error(`The ${dest} directory exist with files. Abort.`);
+export let buildAppSkeleton = (boilerplate, appPath, appId, appName) => {
+    if (fs.existsSync(appPath)
+        && fs.statSync(appPath).isDirectory()
+        && fs.readdirSync(appPath).length > 0) {
+        throw new Error(`The ${appPath} directory exist with files. Abort.`);
     }
 
     return new Promise((resolve, reject) => {
         // Copy boilerplate to destination.
         ncp(
-            template,
-            dest,
+            boilerplate,
+            appPath,
             {
                 stopOnErr: true,
                 transform: function (reader, writer) {
