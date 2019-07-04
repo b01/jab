@@ -34,6 +34,8 @@
   },
   "scripts": {
     "mtest": "mocha --recursive test/mocha/**/*.spec.js --require esm",
-    "test": "yarn run mtest"
+    "preTest": "mkdir -p test/mocha/tmp",
+    "postTest": "rm -rf test/mocha/tmp",
+    "test": "yarn run preTest ; yarn run mtest ; yarn run postTest"
   }
 }
