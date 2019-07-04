@@ -39,4 +39,20 @@ describe('Given the jab command', function () {
             );
         });
     });
+    describe('When passed valid arguments', function () {
+        it('Then makes a new application', function (done) {
+            let fixturePath = `${BLAST_ZONE}/web-01`;
+
+            exec(
+                `node ${CMD} web ${fixturePath} test.4321 "Jab Test"`,
+                (err, stdout) => {
+                    let txt = fs.readFileSync(`${fixturePath}/README.md`).toString();
+                    console.log('stdout', stdout);
+                    expect(err).to.be.equal(null);
+                    expect(txt).to.contain('Jab Test');
+                    done();
+                }
+            );
+        });
+    });
 });

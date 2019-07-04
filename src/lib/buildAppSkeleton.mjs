@@ -1,5 +1,9 @@
+import { cwd } from './cwd.mjs';
 import fs from 'fs';
 import ncp from "ncp";
+
+const __dirname = cwd(import.meta);
+const BOILERPLATE_DIR = `${__dirname}/../../boilerplates`;
 
 /**
  *
@@ -10,6 +14,8 @@ import ncp from "ncp";
  * @returns {Promise<any | never>}
  */
 export let buildAppSkeleton = (boilerplate, appPath, appId, appName) => {
+    let bPath = getBoilerplatePath(boilerplate);
+
     if (fs.existsSync(appPath)
         && fs.statSync(appPath).isDirectory()
         && fs.readdirSync(appPath).length > 0) {
@@ -19,7 +25,7 @@ export let buildAppSkeleton = (boilerplate, appPath, appId, appName) => {
     return new Promise((resolve, reject) => {
         // Copy boilerplate to destination.
         ncp(
-            boilerplate,
+            bPath,
             appPath,
             {
                 stopOnErr: true,
@@ -59,6 +65,25 @@ export let buildAppSkeleton = (boilerplate, appPath, appId, appName) => {
             console.log(err);
             throw err;
         });
+};
+
+let getBoilerplatePath = (boilerplate) => {
+    let path = null;
+
+    if (fs.existsSync(`${BOILERPLATE_DIR}/${boilerplate}`)) {
+        path = `${BOILERPLATE_DIR}/${boilerplate}`;
+    }
+
+    // TODO: Lock-down behind a flag.
+    if (fs.existsSync(boilerplate)) {
+        path = boilerplate;
+    }
+
+    if (!fs.existsSync(path)) {
+        throw Error(`Boiler plate ${boilerplate} does not exists.`);
+    }
+
+    return path;
 };
 
 export default buildAppSkeleton;
