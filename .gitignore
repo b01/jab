@@ -6,4 +6,4 @@
 
 # Files
 # -----
-package-lock.json
+/yarn.lock
