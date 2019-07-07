@@ -12,9 +12,13 @@ boilerplate.
 
 ## Get Started
 
-* Using local installation of NodeJS/NPM.
-  `npm install --global jab`
-  `jab <boilerplate> <app-location> <app-id> <app-name>`
+### Installation
+
+`yarn install --global jab`
+
+### Usage
+
+`jab <boilerplate> <app-location> <app-id> <app-name>`
 
 The command above will perform the following:
 
@@ -22,9 +26,16 @@ The command above will perform the following:
    empty one.
 2. Fill the folder with the default contents of the chosen boilerplate.
 
-NOTE: The `\<app-name\>` and `\<app-id\>` will be used to fill in
+NOTE: The `<app-name>` and `<app-id>` will be used to fill in
       placeholders **\_\_APP_ID_NAME\_\_** and **\_\_APP_ID_NAME\_\_**
       respectively.
+
+| Argument | Description |
+| -------- | ----------- |
+| `<boilerplate>` | Name of a boilerplate, which can be found [here](https://github.com/b01/jab-boilerplates/) |
+| `<app-location>` | Directory path where the applicatoin will be output. |
+| `<app-id>` | A unique string to identify the application, for example `my.app` |
+| `<app-name>` | A human readable name for the application. |
 
 ## Built-in Boilerplates
 
