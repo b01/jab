@@ -36,5 +36,6 @@
     "preTest": "mkdir -p test/mocha/tmp",
     "postTest": "rm -rf test/mocha/tmp",
     "test": "yarn run preTest ; yarn run mtest ; yarn run postTest"
-  }
+  },
+  "postinstall": "grep url .gitmodules | sed 's/.*= //' | while read url; do git clone $url; done"
 }
