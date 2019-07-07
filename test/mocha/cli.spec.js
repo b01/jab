@@ -4,7 +4,6 @@ import { expect } from 'chai';
 import fs from 'fs';
 
 const __dirname = cwd(import.meta);
-const FIXTURES = `${__dirname}/fixtures`;
 const CMD = `${__dirname}/../../src/cli.mjs`;
 const BLAST_ZONE = `${__dirname}/tmp/cli`;
 
@@ -45,11 +44,22 @@ describe('Given the jab command', function () {
 
             exec(
                 `node ${CMD} web ${fixturePath} test.4321 "Jab Test"`,
-                (err, stdout) => {
+                (err) => {
                     let txt = fs.readFileSync(`${fixturePath}/README.md`).toString();
-                    console.log('stdout', stdout);
                     expect(err).to.be.equal(null);
                     expect(txt).to.contain('Jab Test');
+                    done();
+                }
+            );
+        });
+    });
+    describe('When passed the --show flag', function () {
+        it('Then displays the installed boilerplates', function (done) {
+            exec(
+                `node ${CMD} --show`,
+                (err, stdout) => {
+                    expect(err).to.be.equal(null);
+                    expect(stdout).to.contain('- web');
                     done();
                 }
             );

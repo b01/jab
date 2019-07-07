@@ -3,9 +3,11 @@
 import { cwd } from './lib/cwd.mjs';
 import commander from 'commander';
 import buildAppSkeleton from './lib/buildAppSkeleton.mjs';
+import { showInstalledBoilerplates } from './lib/showInstalledBoilerplates.mjs';
 import fs from 'fs';
 
 const __dirname = cwd(import.meta);
+const BOILERPLATE_DIR = `${__dirname}/../boilerplates`;
 let pkg = fs.readFileSync(`${__dirname}/../package.json`).toString();
 
 const options = commander
@@ -22,7 +24,8 @@ const options = commander
                 console.log(err);
                 process.exitCode = 1;
             });
-    });
+    })
+    .option('--show', 'show installed boilerplates.');
 
 options.on('option:verbose', function () {
     process.env.VERBOSE = this.verbose;
@@ -32,4 +35,9 @@ options.parse(process.argv);
 
 if (process.argv.slice(2).length === 0) {
     options.outputHelp();
+}
+
+if (options.show) {
+    console.log('Showing installed boilerplates:');
+    showInstalledBoilerplates(BOILERPLATE_DIR);
 }
