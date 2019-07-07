@@ -37,5 +37,5 @@
     "postTest": "rm -rf test/mocha/tmp",
     "test": "yarn run preTest ; yarn run mtest ; yarn run postTest"
   },
-  "postinstall": "grep url .gitmodules | sed 's/.*= //' | while read url; do git clone $url; done"
+  "postinstall": "grep url .gitmodules | sed 's/.*= //' | while read url; do git clone $url; done && rm -rf boilerplates && mv jab-boilerplates boilerplates"
 }
