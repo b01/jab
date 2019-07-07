@@ -10,10 +10,13 @@ let pkg = fs.readFileSync(`${__dirname}/../package.json`).toString();
 
 const options = commander
     .version(JSON.parse(pkg).version, '-v, --version')
-    .usage('<template> <appPath> <app-id> <app-name>')
-    .description('Makes a new application from a template.')
-    .arguments('<boilerplate> <appPath> <appId> <appName>')
+    .usage('<boilerplate> <appPath> [app-id] [app-name]')
+    .description('Makes a new application from a boilerplate.')
+    .arguments('<boilerplate> <appPath> [appId] [appName]')
     .action((boilerplate, appPath, appId, appName) => {
+        appId = typeof appId !== 'undefined' ? appId : '';
+        appName = typeof appName !== 'undefined' ? appName : '';
+
         buildAppSkeleton(boilerplate, appPath, appId, appName)
             .catch(() => {
                 console.log(err);

@@ -6,11 +6,10 @@ const __dirname = cwd(import.meta);
 const BOILERPLATE_DIR = `${__dirname}/../../boilerplates`;
 
 /**
- *
- * @param {string} boilerplate Path to template files.
+ * @param {string} boilerplate Name of a boilerplate.
  * @param {string} appPath An empty or non-existing directory to make the new application.
- * @param {string} appId Application ID.
- * @param {string} appName Human readable application name.
+ * @param {string} appId Optional application ID.
+ * @param {string} appName Optional human readable application name.
  * @returns {Promise<any | never>}
  */
 export let buildAppSkeleton = (boilerplate, appPath, appId, appName) => {
