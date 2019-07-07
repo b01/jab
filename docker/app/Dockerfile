@@ -23,7 +23,10 @@ RUN apk --no-progress add --no-cache --virtual gitDeps \
  && yarn global add https://github.com/b01/jab.git \
  && rm -vrf /var/cache/apk/* \
  && apk del gitDeps \
- && rm -vrf /tmp/*
+ && rm -vrf /tmp/* \
+ && adduser -D jab
+
+USER jab
 
 ENTRYPOINT [ "jab" ]
 CMD [""]
