@@ -35,7 +35,7 @@
     "mtest": "mocha --recursive test/mocha/**/*.spec.js --require esm",
     "preTest": "mkdir -p test/mocha/tmp",
     "postTest": "rm -rf test/mocha/tmp",
-    "test": "yarn run preTest ; yarn run mtest ; yarn run postTest"
-  },
-  "postinstall": "grep url .gitmodules | sed 's/.*= //' | while read url; do git clone $url; done && rm -rf boilerplates && mv jab-boilerplates boilerplates"
+    "test": "yarn run preTest ; yarn run mtest ; yarn run postTest",
+    "postinstall": "echo 'manually cloning git submodules.' && grep url .gitmodules | sed 's/.*= //' | while read url; do git clone $url; done && echo 'moving boilerplates to correct location' && rm -rf boilerplates && mv jab-boilerplates boilerplates && echo 'postintal script complete.' "
+  }
 }
