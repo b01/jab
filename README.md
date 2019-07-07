@@ -33,13 +33,17 @@ NOTE: The `<app-name>` and `<app-id>` will be used to fill in
 | Argument | Description |
 | -------- | ----------- |
 | `<boilerplate>` | Name of a boilerplate, which can be found [here](https://github.com/b01/jab-boilerplates/) |
-| `<app-location>` | Directory path where the applicatoin will be output. |
+| `<app-location>` | Directory path where the application will be output. |
 | `<app-id>` | A unique string to identify the application, for example `my.app` |
 | `<app-name>` | A human readable name for the application. |
 
 ## Built-in Boilerplates
 
 To see a list of available boilerplates: `jab --show`
+
+Boilerplate (in the case of **jab**) is just a directory containing
+files and other directories. Currently files can contain 2 placeholders
+that will be replaced when an application skeleton is built.
 
 ## Using Docker
 
