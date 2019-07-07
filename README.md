@@ -59,11 +59,18 @@ docker run \
 
 Linux/Mac/Windows example:
 
-This will make a new application, using the **web** boilerplate,
-in the current directory (used the environment variable $PWD) named
-"MyApp" 
+This will use the **web** boilerplate to make the application skeleton
+in the docker container at the __/tmp/\<app-folder\>__ location, which
+is mapped to a directory on your host machine at `<local-dir>`. In the
+example below we'll use the environment variable $PWD, which maps to the
+current directory where the command is run from; and makes the
+application skeleton "MyApp".
 
-`docker run --rm -v "${PWD}:/tmp" jabd/jab web /tmp/MyApp my.app "My App"`
+```Powershell
+cd C:\
+PS C:\> docker run --rm -v "${PWD}:/tmp" jabd/jab web /tmp/MyApp my.app "My App"
+
+```
 
 NOTE: -v option should contain a path where you want the **jab** to
       place the output on your host machine. It has to be writable by
