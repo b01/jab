@@ -117,3 +117,5 @@ in accordance with the following rules.
 * [An example of recursion with Promises](https://gist.github.com/magnetikonline/bfaf2ada33c4922b1a7b0dc876b9aef4)
 * [esm](http://2ality.com/2018/12/nodejs-esm-phases.html)
 * [Reduce Docker image sizes using Alpine](https://www.sandtable.com/reduce-docker-image-sizes-using-alpine/)
+* [Submodules of git dependencies are not fetched #1488](https://github.com/yarnpkg/yarn/issues/1488)
+* [How to change the remote repository for a git submodule?](https://stackoverflow.com/questions/913701/how-to-change-the-remote-repository-for-a-git-submodule)
