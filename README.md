@@ -18,7 +18,7 @@ boilerplate.
 
 ### Usage
 
-`jab <boilerplate> <app-location> <app-id> <app-name>`
+`jab <boilerplate> <app-location> [app-id] [app-name]`
 
 The command above will perform the following:
 
@@ -26,7 +26,7 @@ The command above will perform the following:
    empty one.
 2. Fill the folder with the default contents of the chosen boilerplate.
 
-NOTE: The `<app-name>` and `<app-id>` will be used to fill in
+NOTE: The `[app-name]` and `[app-id]` will be used to fill in
       placeholders **\_\_APP_ID_NAME\_\_** and **\_\_APP_ID_NAME\_\_**
       respectively.
 
@@ -34,8 +34,8 @@ NOTE: The `<app-name>` and `<app-id>` will be used to fill in
 | -------- | ----------- |
 | `<boilerplate>` | Name of a boilerplate, which can be found [here](https://github.com/b01/jab-boilerplates/) |
 | `<app-location>` | Directory path where the application will be output. |
-| `<app-id>` | A unique string to identify the application, for example `my.app` |
-| `<app-name>` | A human readable name for the application. |
+| `[app-id]` | A unique string to identify the application, for example `my.app` |
+| `[app-name]` | A human readable name for the application. |
 
 ## Built-in Boilerplates
 
@@ -54,7 +54,7 @@ just to use **jab**, try this:
 docker run \
   -it -v "<local-dir>:/tmp" \
   jabd/jab \
-  <boilerplate> /tmp/<app-location> <app-id> <app-name>
+  <boilerplate> /tmp/<app-location> [app-id] [app-name]
 ```
 
 Linux/Mac/Windows example:
