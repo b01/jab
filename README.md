@@ -56,8 +56,8 @@ NOTE: -v option should contain a path where you want the **jab** to
 
 ## References
 
-[shunit2](https://github.com/kward/shunit2)
-[mjs-mocha](https://github.com/vpotseluyko/mjs-mocha)
-[An example of recursion with Promises](https://gist.github.com/magnetikonline/bfaf2ada33c4922b1a7b0dc876b9aef4)
-[esm](http://2ality.com/2018/12/nodejs-esm-phases.html)
-[Reduce Docker image sizes using Alpine](https://www.sandtable.com/reduce-docker-image-sizes-using-alpine/)
+* [shunit2](https://github.com/kward/shunit2)
+* [mjs-mocha](https://github.com/vpotseluyko/mjs-mocha)
+* [An example of recursion with Promises](https://gist.github.com/magnetikonline/bfaf2ada33c4922b1a7b0dc876b9aef4)
+* [esm](http://2ality.com/2018/12/nodejs-esm-phases.html)
+* [Reduce Docker image sizes using Alpine](https://www.sandtable.com/reduce-docker-image-sizes-using-alpine/)
