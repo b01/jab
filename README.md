@@ -7,6 +7,7 @@ boilerplate.
 
 * [Get Started](#get-started)
 * [Built-in Boilerplates](#built-in-boilerplates)
+* [Using Docker](#using-docker)
 * [References](#references)
 
 ## Get Started
@@ -17,26 +18,28 @@ boilerplate.
 
 The command above will perform the following:
 
-1. Make a folder (if it does not already exists) or use an existing empty one.
+1. Make a folder (if it does not already exists) or use an existing
+   empty one.
 2. Fill the folder with the default contents of the chosen boilerplate.
 
-NOTE: The <app-name> and <app-id> will be used to fill in placeholders 
-**\_\_APP_ID_NAME\_\_ and **\_\_APP_ID_NAME\_\_ respectively.
+NOTE: The `\<app-name\>` and `\<app-id\>` will be used to fill in
+      placeholders **\_\_APP_ID_NAME\_\_** and **\_\_APP_ID_NAME\_\_**
+      respectively.
 
 ## Built-in Boilerplates
 
-To see a list of available boilerplates: `jab show`
+To see a list of available boilerplates: `jab --show`
 
 ## Using Docker
 
 If you already have Docker installed and want to avoid installing Node
-just to use **JAB**, try this:
+just to use **jab**, try this:
 
 ```bash
 docker run \
-  -it -v "${PWD}:/tmp" \
+  -it -v "<local-dir>:/tmp" \
   jabd/jab \
-  <boilerplate> <app-location> <app-id> <app-name>
+  <boilerplate> /tmp/<app-location> <app-id> <app-name>
 ```
 
 Linux/Mac/Windows example:
