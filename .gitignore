@@ -1,9 +1,11 @@
 # Directories
 # -----------
 /.idea/
+/coverage/
 /node_modules/
 /test/mocha/tmp/
 
 # Files
 # -----
 /yarn.lock
+/yarn-error.log
