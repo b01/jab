@@ -23,19 +23,26 @@
     "ncp": "^2.0"
   },
   "devDependencies": {
+    "c8": "^5.0",
     "chai": "^4.0",
-    "esm": "^3.0",
     "eslint": "^6.0",
+    "esm": "^3.0",
     "mocha": "^6.0"
   },
   "bin": {
     "jab": "src/cli.mjs"
   },
   "scripts": {
-    "mtest": "mocha --recursive test/mocha/**/*.spec.js --require esm",
+    "coverage": "c8 yarn test",
     "preTest": "mkdir -p test/mocha/tmp",
+    "postinstall": "bin/post-install.sh",
     "postTest": "rm -rf test/mocha/tmp",
-    "test": "yarn run preTest ; yarn run mtest ; yarn run postTest",
-    "postinstall": "echo 'manually cloning git submodules.' && grep url .gitmodules | sed 's/.*= //' | while read url; do git clone $url; done && echo 'moving boilerplates to correct location' && rm -rf boilerplates && mv jab-boilerplates boilerplates && echo 'postintal script complete.' "
+    "test": "yarn run preTest ; yarn run mocha ; yarn run postTest"
+  },
+  "mocha": {
+    "spec": "test/mocha/**/*.spec.js",
+    "recursive": true,
+    "require": [ "esm" ],
+    "timeout": "3000"
   }
 }

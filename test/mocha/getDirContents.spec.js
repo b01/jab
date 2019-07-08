@@ -1,5 +1,5 @@
-import {cwd } from '../../src/lib/cwd.mjs';
-import { expect } from 'chai';
+import { cwd } from '../../src/lib/cwd.mjs';
+const expect = require('chai').expect;
 import { getDirContents } from '../../src/lib/getDirContents.mjs';
 import { fixtures } from './fixtures/getDirContents-01.mjs';
 

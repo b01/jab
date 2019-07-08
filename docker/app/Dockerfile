@@ -5,7 +5,7 @@ FROM alpine:3.10 as base
 # docker run --rm -it --entrypoint sh jabd/jab
 # docker run --rm -v "${PWD}:/tmp" jabd/jab web /tmp/MyApp my.app "My App"
 
-ENV NODE_OPTIONS="--experimental-modules"
+#ENV NODE_OPTIONS="--experimental-modules"
 
 RUN apk --progress --purge --no-cache upgrade \
  && apk --no-progress add --no-cache \
@@ -16,6 +16,8 @@ RUN apk --progress --purge --no-cache upgrade \
  && rm -vrf /tmp/*
 
 FROM base as deploy
+
+ENV NODE_ENV="production"
 
 RUN apk --no-progress add --no-cache --virtual gitDeps \
     git \
@@ -34,6 +36,8 @@ CMD [""]
 FROM base as dev
 
 WORKDIR /app
+
+ENV NODE_ENV="development"
 
 ENTRYPOINT [ "" ]
 

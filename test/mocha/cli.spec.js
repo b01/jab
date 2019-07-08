@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import fs from 'fs';
 
 const __dirname = cwd(import.meta);
-const CMD = `${__dirname}/../../src/cli.mjs`;
+const CMD = `node --experimental-modules ${__dirname}/../../src/main.mjs`;
 const BLAST_ZONE = `${__dirname}/tmp/cli`;
 
 before(() => {
@@ -15,7 +15,7 @@ describe('Given the jab command', function () {
     describe('When passed no arguments', function () {
         it('Then will output usage message', function (done) {
             exec(
-                `node ${CMD}`,
+                `${CMD}`,
                 (err, stdout) => {
                     expect(err).to.be.equal(null);
                     expect(stdout).to.contain('Usage: ');
@@ -43,7 +43,7 @@ describe('Given the jab command', function () {
             let fixturePath = `${BLAST_ZONE}/web-01`;
 
             exec(
-                `node ${CMD} web ${fixturePath} test.4321 "Jab Test"`,
+                `${CMD} web ${fixturePath} test.4321 "Jab Test"`,
                 (err) => {
                     let txt = fs.readFileSync(`${fixturePath}/README.md`).toString();
                     expect(err).to.be.equal(null);
@@ -56,7 +56,7 @@ describe('Given the jab command', function () {
     describe('When passed the --show flag', function () {
         it('Then displays the installed boilerplates', function (done) {
             exec(
-                `node ${CMD} --show`,
+                `${CMD} --show`,
                 (err, stdout) => {
                     expect(err).to.be.equal(null);
                     expect(stdout).to.contain('- web');
